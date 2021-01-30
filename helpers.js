@@ -1,5 +1,5 @@
 const db = require("./dbConnection");
-const objectId = require("objectid");
+var objectId = require("mongodb").ObjectID;
 module.exports = {
     setTickets: (ticketCount) => {
         return new Promise((resolve, reject) => {

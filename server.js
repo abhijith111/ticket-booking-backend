@@ -5,7 +5,7 @@ const cors = require("cors");
 
 const app = express();
 
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 5000;
 
 app.use(cors());
 db.connect((err) => {
@@ -20,10 +20,9 @@ app.post("/admin", (req, res) => {
 });
 
 app.get("/", (req, res) => {
-    res.send("is that working?");
-    // helpers.getTicketCount().then((response) => {
-    //     res.json(response);
-    // });
+    helpers.getTicketCount().then((response) => {
+        res.json(response);
+    });
 });
 app.post("/allocate:id", (req, res) => {
     var requestedCount = req.params.id
